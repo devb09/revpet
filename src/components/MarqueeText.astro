@@ -1,0 +1,63 @@
+---
+const items = [
+  "Expertos Veterinarios",
+  "Cuidado de Mascotas",
+  "Salud Animal",
+  "Servicios de Vacunación",
+  "Atención de Emergencias",
+  "Nutrición para Mascotas",
+  "Expertos Veterinarios", // repetido para continuidad del loop
+];
+---
+
+<section class="marquee">
+  <div class="marquee__inner">
+    {items.map((text) => (
+      <div class="marquee__item">
+        <h1><strong>{text}</strong> ✦</h1>
+      </div>
+    ))}
+    <!-- duplicamos los items para el loop infinito -->
+    {items.map((text) => (
+      <div class="marquee__item">
+        <h1><strong>{text}</strong> ✦</h1>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background: var(--color-secondary, #0f021b); /* ajusta tu bg */
+    padding: 2rem 0;
+  }
+
+  .marquee__inner {
+    display: flex;
+    width: max-content;
+    animation: marquee 100s linear infinite;
+  }
+
+  .marquee__item {
+    flex: none;
+    padding: 0 2rem;
+  }
+
+  .marquee__item h1 {
+    font-size: 15rem;
+    color: var(--color-primary, #f1eef3);
+    margin: 0;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

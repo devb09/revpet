@@ -1,0 +1,181 @@
+---
+import 'swiper/css';
+import 'swiper/css/pagination';
+// testimonios.ts
+export const testimonios = [
+  {
+    nombre: "Lauis Gómez",
+    cargo: "Dueño de Max (Golden Retriever)",
+    texto:
+      "El equipo de la veterinaria siempre atiende a mi perro con mucho cariño. Max ya no le teme a las consultas, incluso mueve la cola cuando llegamos.",
+    imagen: "/testimonios/laura.jpg",
+  },
+  {
+    nombre: "Carlos Ramírez",
+    cargo: "Dueño de Luna (Gata Persa)",
+    texto:
+      "Me encanta la paciencia con la que atienden a Luna. Además, siempre me explican cada tratamiento de manera clara y sencilla.",
+    imagen: "/testimonios/carlos.jpg",
+  },
+  {
+    nombre: "Sofía Herrera",
+    cargo: "Dueña de Rocky (Bulldog Francés)",
+    texto:
+      "Gracias a la clínica, Rocky superó una alergia complicada. El seguimiento fue excelente y hoy está más feliz y saludable.",
+    imagen: "/testimonios/sofia.jpg",
+  },
+  {
+    nombre: "Andrés Torres",
+    cargo: "Dueño de Nina (Beagle)",
+    texto:
+      "Excelente servicio. Desde las vacunas hasta las emergencias, siempre han estado disponibles y con una sonrisa.",
+    imagen: "/testimonios/andres.jpg",
+  },
+  {
+    nombre: "Mariana López",
+    cargo: "Dueña de Toby (Loro Amazónico)",
+    texto:
+      "No en todas partes saben atender aves, pero aquí siempre cuidan a Toby como si fuera único. Estoy muy agradecida.",
+    imagen: "/testimonios/mariana.jpg",
+  },
+];
+
+---
+
+<section class="testimonial-slider">
+  <div class="swiper testimonial-swiper">
+    <div class="swiper-wrapper">
+
+      {
+        testimonios.map(({cargo,imagen,nombre,texto}, index) => (
+          <div class="swiper-slide">
+        <div class="testimonial-slide">
+          <div class="quote-icon">
+            <!-- SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 142" fill="none" class="quote-svg">
+              <path opacity="0.1" d="M0 141.177L7.18276 99.2858C9.25347 87.3907 13.589 75.237 20.1894 62.8248C26.9192 50.4125 35.0079 38.7114 44.4555 27.7213C54.0325 16.7313 63.9978 7.55141 74.3513 0.181641L106.965 21.7092C97.7762 33.0871 89.8169 44.9822 83.0871 57.3944C76.3573 69.8067 71.7629 83.6412 69.304 98.8979L62.1212 141.177H0ZM98.035 141.177L105.218 99.2858C107.289 87.3907 111.624 75.237 118.224 62.8248C124.954 50.4125 133.043 38.7114 142.491 27.7213C152.068 16.7313 162.033 7.55141 172.386 0.181641L205 21.7092C195.811 33.0871 187.852 44.9822 181.122 57.3944C174.392 69.8067 169.798 83.6412 167.339 98.8979L160.156 141.177H98.035Z" fill="currentColor"></path>
+            </svg>
+          </div>
+          <p class="testimonial-text">
+           {texto}
+          </p>
+          <div class="testimonial-author">
+            <img src={`https://i.pravatar.cc/60?img=${index}`} alt="Vivian" class="author-img" />
+            <div>
+              <h4 class="author-name">{nombre}</h4>
+              <p class="author-role">{cargo}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+        ))
+      }
+      
+    <!-- bullets -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Pagination } from 'swiper/modules';
+
+  new Swiper('.testimonial-swiper', {
+    modules: [Pagination],
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      // Añadido: Cambiar el color del bullet activo
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '" style="background-color: #8b2c2c; margin: 0 8px;"></span>';
+      },
+    },
+  });
+</script>
+
+<style>
+  /* Contenedor de paginación con posición relativa */
+  .testimonial-slider {
+    position: relative;
+    padding-bottom: 3rem; /* Espacio para los puntos */
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  .swiper-pagination-bullet {
+    background: #d9b8b8 !important;
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #8b2c2c !important;
+    transform: scale(1.3);
+  }
+
+  /* Resto de estilos se mantienen igual */
+  .swiper-wrapper {  
+    height: 300px;
+  }
+
+  .testimonial-slider {
+    background: var(--color-secondary);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .testimonial-slide {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #5c1f1f;
+    width: 180px;
+    z-index: 0;
+  }
+
+  .testimonial-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #601c1c;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .author-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+
+  .author-name {
+    font-weight: 700;
+    color: #601c1c;
+    margin: 0;
+  }
+
+  .author-role {
+    font-style: italic;
+    color: #7a3c3c;
+    margin: 0;
+  }
+</style>

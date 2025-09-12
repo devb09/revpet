@@ -1,0 +1,160 @@
+<section class="cta">
+  <a class="cta__text" href="#">
+    <div>
+      <div class="cta__letter">
+        <span class="cta__main-letter">C</span>
+        <span class="cta__hidden-letter">C</span>
+      </div>
+      <div class="cta__letter">
+        <span class="cta__main-letter">O</span>
+        <span class="cta__hidden-letter">O</span>
+      </div>
+      <div class="cta__letter">
+        <span class="cta__main-letter">N</span>
+        <span class="cta__hidden-letter">N</span>
+      </div>
+      <div class="cta__letter">
+        <span class="cta__main-letter"
+          ><svg
+            style="transform: translate3d(0%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+            xmlns="http://www.w3.org/2000/svg"
+            width="100%"
+            viewBox="0 0 100 100"
+            fill="none"
+            class="cta__main-arrow"
+            ><path
+              d="M83.3624 28.3955L11.7627 99.6028L0 87.9045L71.5914 16.6972H8.49347V0.150879H100V91.1559H83.3624V28.3955Z"
+              fill="currentColor"></path></svg
+          ></span
+        >
+        <span class="cta__hidden-letter">
+          <svg
+            style="transform: translate3d(0%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+            xmlns="http://www.w3.org/2000/svg"
+            width="100%"
+            viewBox="0 0 100 100"
+            fill="none"
+            class="cta__main-arrow"
+            ><path
+              d="M83.3624 28.3955L11.7627 99.6028L0 87.9045L71.5914 16.6972H8.49347V0.150879H100V91.1559H83.3624V28.3955Z"
+              fill="currentColor"></path></svg
+          >
+        </span>
+      </div>
+    </div>
+    <div>
+      <div class="cta__letter">
+        <span class="cta__main-letter">T</span>
+        <span class="cta__hidden-letter">T</span>
+      </div>
+      <div class="cta__letter">
+        <span class="cta__main-letter">A</span>
+        <span class="cta__hidden-letter">A</span>
+      </div>
+      <div class="cta__letter">
+        <span class="cta__main-letter">C</span>
+        <span class="cta__hidden-letter">C</span>
+      </div>
+      <div class="cta__letter">
+        <span class="cta__main-letter">T</span>
+        <span class="cta__hidden-letter">T</span>
+      </div>
+      <div class="cta__letter">
+        <span class="cta__main-letter">O</span>
+        <span class="cta__hidden-letter">O</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+<style>
+  .cta {
+    padding: 8rem 10rem;
+    background-color: var(--color-secondary);
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta__text {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    color: var(--color-primary);
+  }
+
+  .cta__letter {
+    position: relative;
+    font-size: 12rem;
+    font-weight: 900;
+    /* font-family: "Alegreya", serif; */
+    line-height: 1;
+    display: inline-block;
+    overflow: clip;
+  }
+
+  .cta__main-letter {
+    display: block;
+    position: relative;
+  }
+
+  .cta__hidden-letter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  .cta__main-arrow {
+    height: 8.5rem;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  gsap.registerPlugin();
+
+  gsap.from(".cta__text", {
+    opacity: 0,
+    delay: 0.2,
+    duration: 1,
+    filter: "blur(10px)",
+    scrollTrigger: {
+      trigger: ".cta",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  const tl = gsap.timeline({ paused: true });
+
+  tl.to(
+    ".cta__main-letter",
+    {
+      y: "-100%",
+      opacity: 0,
+      filter: "blur(1px)",
+      stagger: 0.1,
+      duration: 0.4,
+      ease: "power2.inOut",
+    },
+    0
+  ).to(
+    ".cta__hidden-letter",
+    {
+      y: "-100%",
+      opacity: 1,
+      filter: "blur(0px)",
+      stagger: 0.1,
+      duration: 0.4,
+      ease: "power2.inOut",
+    },
+    0
+  );
+
+  // hover handlers
+  const cta = document.querySelector(".cta__text");
+
+  cta!.addEventListener("mouseenter", () => tl.play());
+  cta!.addEventListener("mouseleave", () => tl.reverse());
+</script>

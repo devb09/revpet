@@ -1,0 +1,41 @@
+<section class="paragraph">
+  <p class="paragraph__text">
+    En PawCare, somos apasionados amantes de los animales, que brindamos
+    servicios veterinarios integrales con un toque de excelencia moderna.
+  </p>
+</section>
+
+<style>
+  .paragraph {
+    justify-content: center;
+    display: flex;
+    background-color: var(--color-secondary);
+    padding: 8rem 10rem;
+  }
+
+  .paragraph__text {
+    margin: 0;
+    max-width: 1200px;
+    font-size: 4rem;
+    line-height: 4rem;
+    color: var(--color-primary);
+    text-align: center;
+    font-weight: 700;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  gsap.from(".paragraph__text", {
+    opacity: 0,
+    delay: 0.4,
+    duration: 1.2,
+    filter: "blur(10px)",
+    scrollTrigger: {
+      trigger: ".paragraph",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+</script>

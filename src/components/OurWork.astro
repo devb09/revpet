@@ -1,0 +1,319 @@
+---
+import Cta from "./Cta.astro";
+---
+
+<section class="ourwork">
+  <div class="ourwork__text-container">
+    <a class="cta__text-sticky" href="#">
+      <div>
+        <div class="cta__letter">
+          <span class="cta__main-letter">C</span>
+          <span class="cta__hidden-letter">C</span>
+        </div>
+        <div class="cta__letter">
+          <span class="cta__main-letter">O</span>
+          <span class="cta__hidden-letter">O</span>
+        </div>
+        <div class="cta__letter">
+          <span class="cta__main-letter">N</span>
+          <span class="cta__hidden-letter">N</span>
+        </div>
+        <div class="cta__letter">
+          <span class="cta__main-letter"
+            ><svg
+              style="transform: translate3d(0%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+              xmlns="http://www.w3.org/2000/svg"
+              width="100%"
+              viewBox="0 0 100 100"
+              fill="none"
+              class="cta__main-arrow"
+              ><path
+                d="M83.3624 28.3955L11.7627 99.6028L0 87.9045L71.5914 16.6972H8.49347V0.150879H100V91.1559H83.3624V28.3955Z"
+                fill="currentColor"></path></svg
+            ></span
+          >
+          <span class="cta__hidden-letter">
+            <svg
+              style="transform: translate3d(0%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+              xmlns="http://www.w3.org/2000/svg"
+              width="100%"
+              viewBox="0 0 100 100"
+              fill="none"
+              class="cta__main-arrow"
+              ><path
+                d="M83.3624 28.3955L11.7627 99.6028L0 87.9045L71.5914 16.6972H8.49347V0.150879H100V91.1559H83.3624V28.3955Z"
+                fill="currentColor"></path></svg
+            >
+          </span>
+        </div>
+      </div>
+      <div>
+        <div class="cta__letter">
+          <span class="cta__main-letter">T</span>
+          <span class="cta__hidden-letter">T</span>
+        </div>
+        <div class="cta__letter">
+          <span class="cta__main-letter">A</span>
+          <span class="cta__hidden-letter">A</span>
+        </div>
+        <div class="cta__letter">
+          <span class="cta__main-letter">C</span>
+          <span class="cta__hidden-letter">C</span>
+        </div>
+        <div class="cta__letter">
+          <span class="cta__main-letter">T</span>
+          <span class="cta__hidden-letter">T</span>
+        </div>
+        <div class="cta__letter">
+          <span class="cta__main-letter">O</span>
+          <span class="cta__hidden-letter">O</span>
+        </div>
+      </div>
+    </a>
+
+    <div class="ourwork__description">
+      <p class="ourwork__text">
+        Nuestro portafolio muestra la diversidad de nuestro talento y la pasión
+        que aportamos a cada mascota.
+      </p>
+    </div>
+  </div>
+
+  <div class="ourwork__images">
+    <div class="ourwork__image-wrapper ourwork__image-wrapper--1">
+      <img
+        class="ourwork__image"
+        src="/images/vet-cat.webp"
+        alt="ourwork image 1"
+      />
+    </div>
+    <div class="ourwork__image-wrapper ourwork__image-wrapper--2">
+      <img
+        class="ourwork__image"
+        src="/images/vet-dog.webp"
+        alt="ourwork image 2"
+      />
+    </div>
+    <div class="ourwork__image-wrapper ourwork__image-wrapper--3">
+      <img
+        class="ourwork__image"
+        src="/images/vet-bird.webp"
+        alt="Hero image 3"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .ourwork {
+    padding: 8rem 10rem;
+    background-color: var(--color-primary);
+    border-radius: 50px ;
+  }
+
+  .ourwork__text-container {
+    display: flex;
+    height: 320vh;
+    position: relative;
+  }
+
+  .cta__text-sticky {
+    height: fit-content;
+    position: sticky;
+    top: 0;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    color: var(--color-secondary);
+  }
+
+  .ourwork__description {
+    width: 40%;
+  }
+
+  .ourwork__text {
+    font-size: 2rem;
+    line-height: 2rem;
+    color: var(--color-secondary);
+    font-weight: 700;
+    /* width: 70%; */
+    justify-self: end;
+  }
+
+  .cta__letter {
+    position: relative;
+    font-size: 12rem;
+    font-weight: 900;
+    /* font-family: "Alegreya", serif; */
+    line-height: 1;
+    display: inline-block;
+    overflow: clip;
+  }
+
+  .cta__main-letter {
+    display: block;
+    position: relative;
+  }
+
+  .cta__hidden-letter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  .cta__main-arrow {
+    height: 8.5rem;
+  }
+
+  .ourwork__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ourwork__image-wrapper {
+    max-width: 300px;
+    overflow: clip;
+    border-radius: 24px;
+    transform-origin: center;
+  }
+
+  .ourwork__image-wrapper--1,
+  .ourwork__image-wrapper--2,
+  .ourwork__image-wrapper--3 {
+    position: absolute;
+  }
+
+  .ourwork__image-wrapper--1 {
+    inset: 30% auto auto 20%;
+  }
+
+  .ourwork__image-wrapper--2 {
+    inset: 52% 15% auto auto;
+  }
+
+  .ourwork__image-wrapper--3 {
+    inset: 80% auto auto 30%;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  gsap.registerPlugin();
+
+  gsap.from(".cta__text-sticky", {
+    opacity: 0,
+    delay: 0.2,
+    duration: 1,
+    filter: "blur(10px)",
+    scrollTrigger: {
+      trigger: ".cta",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  const tl = gsap.timeline({ paused: true });
+
+  tl.to(
+    ".cta__main-letter",
+    {
+      y: "-100%",
+      opacity: 0,
+      filter: "blur(1px)",
+      stagger: 0.1,
+      duration: 0.4,
+      ease: "power2.inOut",
+    },
+    0
+  ).to(
+    ".cta__hidden-letter",
+    {
+      y: "-100%",
+      opacity: 1,
+      filter: "blur(0px)",
+      stagger: 0.1,
+      duration: 0.4,
+      ease: "power2.inOut",
+    },
+    0
+  );
+
+  const cta = document.querySelector(".cta__text-sticky");
+
+  cta!.addEventListener("mouseenter", () => tl.play());
+  cta!.addEventListener("mouseleave", () => tl.reverse());
+
+  gsap.set(".cta__text-sticky", { filter: "blur(0px)" });
+
+  const tlSticky = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".ourwork__text-container",
+      start: "top 10%",
+      end: "bottom bottom",
+      scrub: true,
+      invalidateOnRefresh: true,
+    },
+    defaults: { ease: "none" },
+  });
+
+  tlSticky.to(".cta__text-sticky", { filter: "blur(10px)" });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Guardamos el scroll al cargar
+    const initialScroll = window.scrollY || 0;
+
+    // === Intro timeline (NO ScrollTrigger aquí) ===
+    const loadTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    loadTl.add(() => {
+      // === Scroll animation ===
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".ourwork",
+          start: "top top",
+          end: "bottom 80%",
+          scrub: true,
+          // markers: true,
+          invalidateOnRefresh: true,
+        },
+        defaults: { ease: "none" },
+      });
+
+      scrollTl
+        .to(".ourwork__image-wrapper--1", { scale: 1.6 }, 0)
+        .to(".ourwork__image-wrapper--1", { scale: 1 }, 0.8)
+        .to(".ourwork__image-wrapper--2", { scale: 1.7 }, 0)
+        .to(".ourwork__image-wrapper--2", { scale: 1 }, 0.9)
+        .to(".ourwork__image-wrapper--3", { scale: 1.6 }, 0)
+        .to(".ourwork__image-wrapper--3", { scale: 1 }, 0.9);
+
+      // === Caso 1: estamos arriba (scroll=0) ===
+      if (initialScroll === 0) {
+        return;
+      }
+
+      // === Caso 2: había scroll al recargar ===
+      // forzar actualización de progreso
+      ScrollTrigger.refresh(true);
+      ScrollTrigger.update();
+
+      // tomar progreso actual del scroll y animar suave hasta ahí
+      const st = scrollTl.scrollTrigger;
+      const targetProgress = st!.progress;
+
+      gsap.fromTo(
+        scrollTl,
+        { progress: 0 }, // arranca en el final de la intro (equivalente a progreso 0 del scroll)
+        {
+          progress: targetProgress,
+          duration: 1, // tiempo del catch-up
+          ease: "power2.out",
+        }
+      );
+    });
+  });
+</script>

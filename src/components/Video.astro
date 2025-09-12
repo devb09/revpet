@@ -1,0 +1,104 @@
+---
+
+---
+
+<section class="section-hero-animated-video">
+  <div class="video-element-animated-height">
+    <div class="video_item_stickey">
+      <div class="section-inner animated-video">
+        <!-- Texto superior -->
+        <div class="video-text-mask">
+          <div>
+            Nuestros veterinarios apasionados entregan un cuidado excepcional.
+          </div>
+        </div>
+
+        <!-- Video -->
+        <div class="video-wrapper">
+          <div class="video-item-wrap">
+            <iframe
+              class="background-video-animated"
+              src="https://www.youtube.com/embed/gVAhJuUV63A?autoplay=1&mute=1&loop=1&controls=0&playlist=gVAhJuUV63A"
+              title="YouTube video player"
+              allow="autoplay; fullscreen; encrypted-media"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Texto inferior -->
+        <div class="video-text-mask-bottom">
+          <h2 class="heading-custom-h5">
+            En nuestra clínica, transformamos la salud de tus mascotas con amor
+            y tecnología
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-hero-animated-video {
+    background-color: var(--color-secondary);
+  }
+
+  .video-element-animated-height {
+    min-height: 250vh;
+    position: relative;
+  }
+
+  .video_item_stickey {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  .video-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .video-item-wrap {
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+    border-radius: 50px;
+  }
+
+  .background-video-animated {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-text-mask,
+  .video-text-mask-bottom {
+    font-weight: 800;
+    color: #8b2c2c;
+    font-size: 2rem;
+    text-align: center;
+    padding: 2rem;
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener("DOMContentLoaded", () => {
+    gsap.to(".video-item-wrap", {
+      scrollTrigger: {
+        trigger: ".video-element-animated-height",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        markers: true, // quítalo al terminar de probar
+      },
+      width: "15vw",
+      height: "15vw",
+      ease: "none",
+    });
+  });
+</script>

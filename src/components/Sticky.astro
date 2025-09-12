@@ -1,0 +1,32 @@
+---
+import OurWork from "./OurWork.astro";
+import PetSlider from "./PetSlider.astro";
+---
+
+<section class="ourwork">
+  <div class="ourwork__sticky">
+    <PetSlider />
+  </div>
+  <div class="ourwork__content">
+    <OurWork />
+  </div>
+</section>
+
+<style>
+  .ourwork {
+    position: relative;
+    background-color: var(--color-secondary);
+  }
+
+  .ourwork__sticky {
+    height: 100dvh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .ourwork__content {
+    position: relative;
+    z-index: 2;
+  }
+</style>

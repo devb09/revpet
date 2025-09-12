@@ -1,0 +1,96 @@
+---
+// Divider.astro
+export interface Props {
+  inverted?: boolean;
+}
+
+const { inverted = false } = Astro.props;
+---
+
+<section class={`divider ${inverted ? 'divider--inverted' : ''}`}>
+  <div class="divider__container">
+    <div class="divider__line"></div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      viewBox="0 0 24 25"
+      fill="none"
+      class="divider__star"
+    >
+      <g clip-path="url(#clip0_1_81)">
+        <mask
+          id="mask0_1_81"
+          style="mask-type:luminance"
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="24"
+          height="25"
+        >
+          <path d="M24 0.869141H0V24.8534H24V0.869141Z" fill="white"></path>
+        </mask>
+        <g mask="url(#mask0_1_81)">
+          <path
+            d="M12 0.869141C12.4074 7.31607 17.5488 12.4542 24 12.8613C17.5488 13.2684 12.4074 18.4064 12 24.8534C11.5926 18.4064 6.45115 13.2684 0 12.8613C6.45115 12.4542 11.5926 7.31607 12 0.869141Z"
+            fill="currentColor"
+          ></path>
+        </g>
+      </g>
+    </svg>
+    <div class="divider__line"></div>
+  </div>
+</section>
+
+<style>
+  .divider {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-secondary);
+    padding: 0 2rem;
+  }
+
+  .divider.divider--inverted {
+    background-color: var(--color-primary);
+  }
+
+  .divider.divider--inverted .divider__line {
+    background-color: var(--color-secondary);
+  }
+
+  .divider.divider--inverted .divider__star {
+    color: var(--color-secondary);
+  }
+
+  .divider__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .divider__line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--color-primary);
+    opacity: 0.8;
+  }
+
+  .divider__star {
+    width: 24px;
+    height: 25px;
+    color: var(--color-primary);
+    opacity: 1;
+    flex-shrink: 0;
+    animation: rotateStar 10s linear infinite;
+  }
+
+  @keyframes rotateStar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
