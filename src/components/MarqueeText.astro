@@ -12,17 +12,25 @@ const items = [
 
 <section class="marquee">
   <div class="marquee__inner">
-    {items.map((text) => (
-      <div class="marquee__item">
-        <h1><strong>{text}</strong> ✦</h1>
-      </div>
-    ))}
+    {
+      items.map((text) => (
+        <div class="marquee__item">
+          <h1>
+            <strong>{text}</strong> ✦
+          </h1>
+        </div>
+      ))
+    }
     <!-- duplicamos los items para el loop infinito -->
-    {items.map((text) => (
-      <div class="marquee__item">
-        <h1><strong>{text}</strong> ✦</h1>
-      </div>
-    ))}
+    {
+      items.map((text) => (
+        <div class="marquee__item">
+          <h1>
+            <strong>{text}</strong> ✦
+          </h1>
+        </div>
+      ))
+    }
   </div>
 </section>
 
@@ -50,6 +58,12 @@ const items = [
     font-size: 15rem;
     color: var(--color-primary, #f1eef3);
     margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .marquee__item h1 {
+      font-size: 5rem;
+    }
   }
 
   @keyframes marquee {
